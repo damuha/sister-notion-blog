@@ -249,3 +249,8 @@
   width: 100%;
   height: 100%;
 }
+
+.subText{
+  font-size: 14px;
+  color: var(--accents-3);
+}

@@ -71,7 +71,7 @@ const Index = ({ posts = [], preview }) => {
           alt="Vercel + Notion"
         />
         {posts.length === 0 && (
-          <p className={blogStyles.noPosts}>There are no posts yet</p>
+          <p className={blogStyles.noPosts}>記事がまだありません</p>
         )}
         {posts.map((post) => {
           return (
@@ -86,15 +86,15 @@ const Index = ({ posts = [], preview }) => {
                   </Link>
                 </span>
               </h3>
-              {post.Authors.length > 0 && (
-                <div className="authors">By: {post.Authors.join(' ')}</div>
-              )}
+              {/* {post.Authors.length > 0 && (
+                <div className={blogStyles.subText}>By: {post.Authors.join(' ')}</div>
+              )} */}
               {post.Date && (
-                <div className="posted">Posted: {getDateStr(post.Date)}</div>
+                <div className={blogStyles.subText}>created: {getDateStr(post.Date)}</div>
               )}
-              <p>
+              <p　className={blogStyles.subText}>
                 {(!post.preview || post.preview.length === 0) &&
-                  'No preview available'}
+                  'ーーーーーーーーーーーー'}
                 {(post.preview || []).map((block, idx) =>
                   textBlock(block, true, `${post.Slug}${idx}`)
                 )}
