@@ -9,24 +9,27 @@ const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'sister', link: 'https://sisterwith.com' },
 ]
 
-const ogImageUrl = 'https://sister-prod.s3-ap-northeast-1.amazonaws.com/big-sister-card.png'
+const defaultOgImageUrl =
+  'https://sister-prod.s3-ap-northeast-1.amazonaws.com/big-sister-card.png'
+const defaultUrl = 'https://blog.sisterwith.com'
+const defaultTitle = 'sister（シスター）'
+const defaultDescription =
+  'sister（シスター）｜IT・Web業界に特化した女性向けサービス'
 
-const Header = ({ titlePre = '' }) => {
+const Header = ({ path = '', titlePre = '' }) => {
   const { pathname } = useRouter()
 
   return (
     <header className={styles.header}>
       <Head>
         <title>{titlePre ? `${titlePre} |` : ''} sister blog</title>
-        <meta
-          name="description"
-          content="An example Next.js site using Notion for the blog"
-        />
-        <meta name="og:title" content="sister（シスター）" />
-        <meta property="og:image" content={ogImageUrl} />
+        <meta name="description" content={defaultDescription} />
+        <meta property="og:url" content={`${defaultUrl}${path}`} />
+        <meta name="og:title" content={!titlePre ? defaultTitle : titlePre} />
+        <meta property="og:image" content={defaultOgImageUrl} />
         <meta name="twitter:site" content="@sister_jp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={ogImageUrl} />
+        <meta name="twitter:image" content={defaultOgImageUrl} />
       </Head>
       <ul>
         {navItems.map(({ label, page, link }) => (
