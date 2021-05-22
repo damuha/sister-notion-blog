@@ -90,11 +90,11 @@ const Index = ({ posts = [], preview }) => {
                 <div className={blogStyles.subText}>By: {post.Authors.join(' ')}</div>
               )} */}
               {post.Date && (
-                <div className={blogStyles.subText}>created: {getDateStr(post.Date)}</div>
+                <div className={blogStyles.subText}>{getDateStr(post.Date)}</div>
               )}
               <p　className={blogStyles.subText}>
                 {(!post.preview || post.preview.length === 0) &&
-                  'ーーーーーーーーーーーー'}
+                  ''}
                 {(post.preview || []).map((block, idx) =>
                   textBlock(block, true, `${post.Slug}${idx}`)
                 )}
