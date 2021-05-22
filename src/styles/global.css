@@ -4,7 +4,7 @@
   --gap: 1rem;
   --gap-double: 2rem;
 
-  --bg: #fff;
+  --bg: #EAE2E0;
   --fg: #000;
   --accents-1: #111;
   --accents-2: #333;
@@ -38,8 +38,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
-  background-image: radial-gradient(#ddd 1px, transparent 1px),
-    radial-gradient(#ddd 1px, transparent 1px);
+  background-image: radial-gradient(#C3ACA5 1px, transparent 1px),
+    radial-gradient(#C3ACA5 1px, transparent 1px);
   background-position: 0 0, 25px 25px;
   background-attachment: fixed;
   background-size: 50px 50px;
@@ -252,11 +252,11 @@ figure {
 }
 
 a {
-  color: #0070f3;
+  color: #1EB6BE;
   text-decoration: none;
 }
 a:hover {
-  color: #3291ff;
+  color: #86eaf0;
 }
 
 .links {
