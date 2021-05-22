@@ -9,7 +9,7 @@ const navItems: { label: string; page?: string; link?: string }[] = [
   { label: 'sister', link: 'https://sisterwith.com' },
 ]
 
-const ogImageUrl = 'https://notion-blog.now.sh/og-image.png'
+const ogImageUrl = 'https://sister-prod.s3-ap-northeast-1.amazonaws.com/big-sister-card.png'
 
 const Header = ({ titlePre = '' }) => {
   const { pathname } = useRouter()
@@ -17,12 +17,12 @@ const Header = ({ titlePre = '' }) => {
   return (
     <header className={styles.header}>
       <Head>
-        <title>{titlePre ? `${titlePre} |` : ''} My Notion Blog</title>
+        <title>{titlePre ? `${titlePre} |` : ''} sister blog</title>
         <meta
           name="description"
           content="An example Next.js site using Notion for the blog"
         />
-        <meta name="og:title" content="My Notion Blog" />
+        <meta name="og:title" content="sister（シスター）" />
         <meta property="og:image" content={ogImageUrl} />
         <meta name="twitter:site" content="@sister_jp" />
         <meta name="twitter:card" content="summary_large_image" />
