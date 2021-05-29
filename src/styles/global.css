@@ -4,7 +4,7 @@
   --gap: 1rem;
   --gap-double: 2rem;
 
-  --bg: #EAE2E0;
+  --bg: #eae2e0;
   --fg: #000;
   --accents-1: #111;
   --accents-2: #333;
@@ -250,7 +250,7 @@ figure {
 }
 
 a {
-  color: #1EB6BE;
+  color: #1eb6be;
   text-decoration: none;
 }
 a:hover {
@@ -306,7 +306,7 @@ h2 {
 p {
   color: #555;
   font-weight: 400;
-  font-size: 0.94rem;
+  font-size: 0.8rem;
   line-height: 1.7;
 }
 pre {
