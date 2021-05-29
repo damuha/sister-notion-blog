@@ -11,7 +11,12 @@ import getPageData from '../../lib/notion/getPageData'
 import React, { CSSProperties, useEffect } from 'react'
 import getBlogIndex from '../../lib/notion/getBlogIndex'
 import getNotionUsers from '../../lib/notion/getNotionUsers'
-import { getBlogLink, getDateStr } from '../../lib/blog-helpers'
+import {
+  getBlogLink,
+  getTagLink,
+  getDateStr,
+  postIsPublished,
+} from '../../lib/blog-helpers'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
 
 // Get the data for each blog post
@@ -57,6 +62,12 @@ export async function getStaticProps({ params: { slug }, preview }) {
     }
   }
 
+  const tags: string[] = Object.keys(postsTable)
+    .filter((slug) => postIsPublished(postsTable[slug]))
+    .map((slug) => postsTable[slug].Tags)
+    .flat()
+    .filter((tag, index, self) => self.indexOf(tag) === index)
+
   const { users } = await getNotionUsers(post.Authors || [])
   post.Authors = Object.keys(users).map((id) => users[id].full_name)
 
@@ -84,7 +95,7 @@ export async function getStaticPaths() {
 
 const listTypes = new Set(['bulleted_list', 'numbered_list'])
 
-const RenderPost = ({ post, redirect, preview }) => {
+const RenderPost = ({ post, tags = [], redirect, preview }) => {
   const router = useRouter()
 
   let listTagName: string | null = null
@@ -160,6 +171,22 @@ const RenderPost = ({ post, redirect, preview }) => {
         {/* {post.Authors.length > 0 && (
           <div className="authors">By: {post.Authors.join(' ')}</div>
         )} */}
+        <div className={blogStyles.flex}>
+          {post.Tags &&
+            post.Tags.length > 0 &&
+            post.Tags.map((tag) => (
+              <Link
+                href="/blog/tag/[tag]"
+                as={getTagLink(tag)}
+                key={tag}
+                passHref
+              >
+                <div className={blogStyles.tag}>
+                  <a>{tag}</a>
+                </div>
+              </Link>
+            ))}
+        </div>
         {post.Date && (
           <div className={blogStyles.subText}>
             created: {getDateStr(post.Date)}
