@@ -18,6 +18,7 @@ import {
   postIsPublished,
 } from '../../lib/blog-helpers'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
+import Share from '../../components/share'
 
 // Get the data for each blog post
 export async function getStaticProps({ params: { slug }, preview }) {
@@ -187,14 +188,18 @@ const RenderPost = ({ post, tags = [], redirect, preview }) => {
               </Link>
             ))}
         </div>
+        <div className={blogStyles.tag}>
+          <Share
+            text={`${post.Page} #sisterwith`}
+            url={`https://blog.sisterwith.com/blog/${post.Slug}`}
+          />
+        </div>
         {post.Date && (
           <div className={blogStyles.subText}>
             created: {getDateStr(post.Date)}
           </div>
         )}
-
         <hr />
-
         {(!post.content || post.content.length === 0) && (
           <p>This post has no content</p>
         )}
