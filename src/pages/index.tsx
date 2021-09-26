@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Header from '../components/header'
+import Share from '../components/share'
 
 import blogStyles from '../styles/blog.module.css'
 import sharedStyles from '../styles/shared.module.css'
@@ -71,6 +72,18 @@ const Index = ({ posts = [], tags = [], preview }) => {
         </div>
       )}
       <div className={`${sharedStyles.layout} ${blogStyles.blogIndex}`}>
+        <div
+          style={{
+            justifyContent: 'center',
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          <Share
+            text={`sister（シスター）のブログ #sisterwith`}
+            url={`https://blog.sisterwith.com`}
+          />
+        </div>
         <h1>sister</h1>
         <img
           src="/big-sister.png"
