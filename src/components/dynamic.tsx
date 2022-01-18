@@ -11,6 +11,7 @@ export default {
   a: ExtLink,
 
   Code: dynamic(() => import('./code')),
-  Counter: dynamic(() => import('./counter')),
-  Equation: dynamic(() => import('./equation')),
+  Callout: dynamic(() => import('./callout')),
+  TweetEmbed: dynamic(() => import('./tweet-embed')),
+  Table: dynamic(() => import('./table')),
 }
